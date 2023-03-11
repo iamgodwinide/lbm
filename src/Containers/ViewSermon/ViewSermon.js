@@ -235,82 +235,86 @@ const ViewSermon = ({ route }) => {
                     marginTop: 10
                 }}>
 
-                    <View style={{
-                        marginVertical: 10,
-                        flexDirection: "row",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                        backgroundColor: "#fff",
-                        paddingHorizontal: 20,
-                        paddingVertical: 10
-                    }}>
+                    {
+                        message.video_url
+                        &&
                         <View style={{
+                            marginVertical: 10,
                             flexDirection: "row",
-                            alignItems: "center"
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            backgroundColor: "#fff",
+                            paddingHorizontal: 20,
+                            paddingVertical: 10
                         }}>
-                            <Icon type='AntDesign' name='playcircleo' size={25} color="#000" />
                             <View style={{
-                                marginLeft: 10
+                                flexDirection: "row",
+                                alignItems: "center"
                             }}>
-                                <Text style={{
-                                    color: "#000",
-                                    fontSize: 16,
-                                    fontFamily: "NotoSans-Bold"
-
-                                }}>VIDEOSTREAM</Text>
-                                <Text
-                                    style={{
-                                        color: "red",
+                                <Icon type='AntDesign' name='playcircleo' size={25} color="#000" />
+                                <View style={{
+                                    marginLeft: 10
+                                }}>
+                                    <Text style={{
+                                        color: "#000",
                                         fontSize: 16,
                                         fontFamily: "NotoSans-Bold"
-
-                                    }}
-                                >+FREE AUDIO</Text>
+    
+                                    }}>VIDEOSTREAM</Text>
+                                    <Text
+                                        style={{
+                                            color: "red",
+                                            fontSize: 16,
+                                            fontFamily: "NotoSans-Bold"
+    
+                                        }}
+                                    >+FREE AUDIO</Text>
+                                </View>
                             </View>
-                        </View>
-                        {
-                            videoLoading
-                                ? <Pressable style={{
-                                    backgroundColor: "#1046D0",
-                                    padding: 10,
-                                    borderRadius: 10,
-                                    width: 80,
-                                    justifyContent: "center",
-                                    alignItems: "center"
-                                }}>
-                                    <ActivityIndicator size={25} color={"#fff"} />
-                                </Pressable>
-                                : hasMessage.video_url
-                                    ? <Pressable
-                                        style={{
-                                            backgroundColor: Colors.grey,
-                                            padding: 10,
-                                            borderRadius: 10,
-                                            width: 100
-                                        }}>
-                                        <Text style={{
-                                            color: "#fff",
-                                            fontFamily: "NotoSans-Bold",
-                                            textAlign: "center"
-                                        }}>Purchased</Text>
+                            {
+                                videoLoading
+                                    ? <Pressable style={{
+                                        backgroundColor: "#1046D0",
+                                        padding: 10,
+                                        borderRadius: 10,
+                                        width: 80,
+                                        justifyContent: "center",
+                                        alignItems: "center"
+                                    }}>
+                                        <ActivityIndicator size={25} color={"#fff"} />
                                     </Pressable>
-                                    : <TouchableOpacity
-                                        onPress={() => handleBuyMessage(types.video)}
-                                        style={{
-                                            backgroundColor: "#1046D0",
-                                            padding: 10,
-                                            borderRadius: 10,
-                                            width: 80
-                                        }}>
-                                        <Text style={{
-                                            color: "#fff",
-                                            fontFamily: "NotoSans-Bold",
-                                            textAlign: "center"
-                                        }}>{message.videoPrice} Token{message.audioPrice > 1 ? "s" : ""}</Text>
-                                    </TouchableOpacity>
-
-                        }
-                    </View>
+                                    : hasMessage.video_url
+                                        ? <Pressable
+                                            style={{
+                                                backgroundColor: Colors.grey,
+                                                padding: 10,
+                                                borderRadius: 10,
+                                                width: 100
+                                            }}>
+                                            <Text style={{
+                                                color: "#fff",
+                                                fontFamily: "NotoSans-Bold",
+                                                textAlign: "center"
+                                            }}>Purchased</Text>
+                                        </Pressable>
+                                        : <TouchableOpacity
+                                            onPress={() => handleBuyMessage(types.video)}
+                                            style={{
+                                                backgroundColor: "#1046D0",
+                                                padding: 10,
+                                                borderRadius: 10,
+                                                width: 80
+                                            }}>
+                                            <Text style={{
+                                                color: "#fff",
+                                                fontFamily: "NotoSans-Bold",
+                                                textAlign: "center"
+                                            }}>{message.videoPrice} Token{message.audioPrice > 1 ? "s" : ""}</Text>
+                                        </TouchableOpacity>
+    
+                            }
+                        </View>
+                    }
 
                     <View style={{
                         marginVertical: 10,
